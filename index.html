@@ -231,6 +231,47 @@
     }
 
 
+    /* 論文項目樣式 */
+    .publication-item {
+      margin-bottom: 20px; /* 每個論文項目的間距 */
+    }
+
+    /* 左側圖片樣式 */
+    .publication-item img {
+      border-radius: 8px; /* 圓角圖片 */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+      max-width: 100%; /* 圖片寬度適應父容器 */
+      height: auto; /* 高度保持比例 */
+      object-fit: contain; /* 確保圖片內容完整顯示 */
+    }
+
+    /* 右側文字內容樣式 */
+    .publication-item h4 {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .publication-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .publication-item a {
+      color: #007BFF; /* 超連結藍色 */
+      text-decoration: none;
+    }
+
+    .publication-item a:hover {
+      text-decoration: underline; /* 懸停時下劃線 */
+    }
+
+    .btn {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+
   </style>
 </head>
 <body>
@@ -312,6 +353,7 @@
     <h2>Projects</h2>
     <div class="project">
         <h3>Research and Systematic Realization of Imaging-Based Detection of Atrial Fibrillation and Arrhythmia</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8SVuIYg6nUQ?si=YoBpcWZ13RXxsPch" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>
             <strong>Location:</strong> Hsinchu, Taiwan<br>
             <strong>Advisor:</strong> Chair Professor Bing-Fei Wu<br>
@@ -326,10 +368,10 @@
     </div>
     <div class="project">
         <h3>Poker Playing System Utilizing Deep Learning and Robotic Arm</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/8X3cQt0tPHo?si=C9uMD3yEyLaT1PmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8X3cQt0tPHo?si=C9uMD3yEyLaT1PmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         <p>
             <strong>Location:</strong> New Taipei City, Taiwan<br>
-            <strong>Advisor:</strong> Prof. Ching-Chang Wong<br>
+            <strong>Advisor:</strong> Distinguished Professor Ching-Chang Wong<br>
             <strong>Sponsor:</strong> National Science and Technology Council<br>
             <strong>Duration:</strong> Jul. 2021 – Feb. 2022
         </p>
@@ -342,7 +384,7 @@
 </section>
 
 
-  <section id="publications" class="container my-5">
+  <!-- <section id="publications" class="container my-5">
     <h2>Selected Publications</h2>
     <h3> </h3>
     <p>
@@ -351,7 +393,31 @@
     <p class="citations_form">
       [1] <u>C. -W. Tseng</u>, B. -F. Wu and S. Yu, "A Real-Time Contact-Free Atrial Fibrillation Detection System for Mobile Devices," in <i>IEEE Journal of Biomedical and Health Informatics</i>, doi: <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" class="doi-link">10.1109/JBHI.2024.3422155</a>. (Accepted)
     </p>
+  </section> -->
+
+  <section id="publications" class="container my-5">
+    <h2>Selected Publications</h2>
+    <!-- 第一篇論文 -->
+    <div class="row publication-item align-items-start mb-4">
+        <!-- 左側圖片 -->
+        <div class="col-12 col-md-3 text-center text-md-start">
+            <img src="assets/JBHI_BiSMEATT_Feature.png" alt="Paper Thumbnail" class="img-fluid rounded">
+        </div>
+        <!-- 右側文字內容 -->
+        <div class="col-12 col-md-9">
+            <h4 class="mb-1">
+                <strong>A Real-Time Contact-Free Atrial Fibrillation Detection System for Mobile Devices</strong>
+            </h4>
+            <p class="mb-1">
+                <u>C. -W. Tseng</u>, B. -F. Wu, S. Yu
+            </p>
+            <p class="text-muted mb-2"><i>IEEE Journal of Biomedical and Health Informatics</i>, 2024</p>
+            <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" class="btn btn-outline-primary btn-sm">View Paper</a>
+        </div>
+    </div>
   </section>
+
+
 
   <section id="honour" class="container my-5">
     <h2>Honours & Awards</h2>
