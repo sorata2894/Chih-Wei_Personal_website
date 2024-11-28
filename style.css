@@ -1,0 +1,108 @@
+/* 全局樣式 */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    font-weight: 700;
+    font-size: 36px;
+  }
+  
+  h2 {
+    font-weight: 500;
+    border-bottom: 2px solid #007BFF;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+  }
+  
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* 導航欄 */
+  .navbar {
+    padding: 10px 20px;
+  }
+  
+  .navbar-brand {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 500;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #0056b3;
+    font-weight: 700;
+  }
+  
+  /* 圖片樣式 */
+  .profile-photo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .profile-main-photo {
+    width: 50px;
+    height: auto;
+    object-fit: cover;
+    /* border-radius: ; */
+    border: 3px solid #ddd;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px; /* 圖標之間的間距 */
+  }
+  
+  .icon-link {
+    color: #ccc; /* 預設圖標顏色 */
+    font-size: 20px; /* 圖標大小 */
+    transition: color 0.3s ease;
+  }
+  
+  .icon-link:hover {
+    color: #007BFF; /* 懸停顏色變化 */
+  }
+
+  .text-justify {
+    text-align: justify; /* 文字兩端對齊 */
+    line-height: 1.8; /* 增加行距，提升可讀性 */
+    font-size: 1rem; /* 調整文字大小，根據需求修改 */
+    color: #333; /* 字體顏色，根據設計風格選擇 */
+    margin-bottom: 1.2rem; /* 增加段落間距 */
+    text-indent: 2em; /* 段首縮排 */
+  }
+  
+  /* 頁面區塊 */
+  header {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+  }
+  
+  footer {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 10px 20px;
+  }
+  
+  

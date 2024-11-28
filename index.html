@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    /* 個人資訊區域樣式 */
+    .profile-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .profile-photo {
+      width: 200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid #ddd;
+      margin-right: 30px;
+    }
+
+    .profile-info {
+      max-width: 600px;
+    }
+
+    .header-subtitle {
+      text-align: center;
+      font-size: 16px; /* 副標題字體大小 */
+      color: #666;
+    }
+
+    .header-subtitle a {
+      color: #007BFF; /* 超連結顏色 */
+      text-decoration: none; /* 移除底線 */
+    }
+
+    .header-subtitle a:hover {
+      text-decoration: underline; /* 懸停時顯示底線 */
+    }
+
+    .profile-info h1 {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .profile-info p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .profile-info a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .profile-info a:hover {
+      text-decoration: underline;
+    }
+    .social-icons {
+        display: flex;
+        gap: 15px; /* 圖標之間的間距 */
+    }
+    
+    .icon-link {
+        color: #ccc; /* 預設圖標顏色 */
+        font-size: 20px; /* 圖標大小 */
+        transition: color 0.3s ease;
+    }
+    
+    .icon-link:hover {
+        color: #007BFF; /* 懸停顏色變化 */
+    }
+    
+    .text-justify {
+      text-align: justify; /* 文字兩端對齊 */
+      line-height: 1.8; /* 增加行距，提升可讀性 */
+      font-size: 1rem; /* 調整文字大小，根據需求修改 */
+      color: #333; /* 字體顏色，根據設計風格選擇 */
+      margin-bottom: 1.2rem; /* 增加段落間距 */
+      /* text-indent: 2em; 段首縮排 */
+    }
+    .citations_form{
+      text-align: justify; /* 文字兩端對齊 */
+      text-align: justify; /* 文字兩端對齊 */
+      line-height: 1.8; /* 增加行距，提升可讀性 */
+      font-size: 1rem; /* 調整文字大小，根據需求修改 */
+      color: #333; /* 字體顏色，根據設計風格選擇 */
+      margin-bottom: 1.2rem; /* 增加段落間距 */
+      text-indent: -2em; /* 首行負縮排 */
+      padding-left: 2em; /* 整體縮進補償負縮排 */
+    }
+    .citations_form i {
+      font-style: italic; /* 斜體 */
+    }
+
+    .citations_form u {
+      text-decoration: underline; /* 底線 */
+    }
+
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+          <!-- 左側標題 -->
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <span>Chih-Wei Tseng Personal Website</span>
+          </a>
+      
+          <!-- 右側社交圖標 -->
+          <div class="social-icons d-none d-lg-flex">
+            <a href="https://www.linkedin.com/in/chih-wei-tseng-73b5732a5/" target="_blank" class="icon-link" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-TW&user=ybjfgNEAAAAJ" target="_blank" class="icon-link" title="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+          </div>
+      
+          <!-- 移動端摺疊導航 -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link active" href="#Research interest">Research Interests</a></li>
+              <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+              <li class="nav-item"><a class="nav-link" href="#honour">Honours</a></li>
+              <li class="nav-item"><a class="nav-link" href="assets/My_cv.pdf" target="_blank">CV</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+   <!-- Profile Section -->
+   <section class="profile-section container">
+    <img src="assets/Personal_image.jpg" alt="Your Photo" class="profile-photo">
+    <div class="profile-info">
+      <h1>Chih-Wei Tseng</h1>
+      <!-- <p>Current Title: Research Assistant, Institution of Electrical and Control Engineering, National Yang Ming Chiao Tung University University</p> -->
+      <p class="header-subtitle">
+        Research Assistant • <a href="https://cn.nycu.edu.tw/index.php?locale=tw" target="_blank">Institution of Electrical and Control Engineering</a> • <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank">@NYCU</a>
+      </p>
+      
+      <p>
+        Ph.D. student specializing in Artificial Intelligence applications for Particle Physics and Medical Physics.
+        Passionate about innovation and scientific dissemination. In June 2020, I obtained a master's degree in Physics
+        and Astrophysics and conducted research at CERN as part of my thesis work.
+      </p>
+      <p>
+        <a href="assets/My_CV.pdf" target="_blank">View my CV</a> · <a href="#publications">View Publications</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <section id="research interest" class="container my-5">
+    <h2>Research interests</h2>
+    <p>Currently research interest is in AI(Gen. AI, AI acceleration & compression), Robotics, Healthcare</p>
+  </section>
+
+  <section id="bio" class="container my-5">
+    <h2>Bio</h2>
+    <p class="text-justify">
+      Chih-Wei Tseng is a Research Assistant at National Yang Ming Chiao Tung University (NYCU), advised by Professor Bing-Fei Wu. He specializes in artificial intelligence, healthcare, and robotics. Chih-Wei holds a bachelor’s degree in Electrical and Computer Engineering from Tamkang University, where he graduated top of his class, and a master’s degree in Electrical and Control Engineering from NYCU, with a GPA of 4.14/4.30. His research includes developing a remote atrial fibrillation detection system based on edge computing, published in the IEEE Journal of Biomedical and Health Informatics, and leading projects on generative AI, large language models, and trajectory prediction systems. During his undergraduate studies, he worked under Professor Ching-Chang Wong to design a poker-playing system integrating deep learning and a robotic arm. Chih-Wei has received several prestigious awards, including the 17th TSC Thesis Award - Distinction and the Graduate Student Presidential Award. He is skilled in Python, C++, Java, and deep learning frameworks, with a focus on applying AI to real-world challenges. His research goal is to advance generative AI and LLM acceleration to make AI more accessible and impactful.
+    </p>
+  </section>
+
+  <section id="projects" class="container my-5">
+    <h2>Projects</h2>
+    <p>Showcase your recent projects, research work, or personal creations.</p>
+  </section>
+
+  <section id="publications" class="container my-5">
+    <h2>Selected Publications</h2>
+    <p>
+      First Author:
+    </p>
+    <p class="citations_form">
+      [1] <u>C. -W. Tseng</u>, B. -F. Wu and S. Yu, "A Real-Time Contact-Free Atrial Fibrillation Detection System for Mobile Devices," in <i>IEEE Journal of Biomedical and Health Informatics</i>, doi: <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" class="doi-link">10.1109/JBHI.2024.3422155</a>. (Accepted)
+    </p>
+  </section>
+
+  <section id="honour" class="container my-5">
+    <h2>Honours</h2>
+    <p>
+      The 17th TSC Thesis Award - Distinction Award
+    </p>
+    <p>
+      Top 11 of 1,023 graduate students’ thesis.
+    </p>
+  </section>
+  
+
+  
+
+  <footer class="text-center py-3 mt-5 bg-light border-top">
+    &copy; 2024 Chih-Wei Tseng 
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
