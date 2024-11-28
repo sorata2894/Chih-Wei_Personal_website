@@ -51,6 +51,36 @@
       font-size: 32px;
       font-weight: 700;
     }
+    /* 專案區塊樣式 */
+    #bio h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
+
+    #projects h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
+
+    #honour h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
+
+    #publications h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
+
+    #Research_interest h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
 
     .profile-info p {
       font-size: 16px;
@@ -105,6 +135,58 @@
     .citations_form u {
       text-decoration: underline; /* 底線 */
     }
+    .award-list {
+      list-style-type: none; /* 移除項目符號 */
+      padding: 0;
+    }
+
+    .award-list li {
+      margin-bottom: 1.5rem; /* 每個獎項之間的間距 */
+    }
+
+    .award-list strong {
+      font-size: 1.1rem; /* 獎項名稱加粗並稍大 */
+      color: #333; /* 文字顏色 */
+    }
+
+    .award-list .description {
+      display: block; /* 描述換行 */
+      margin-top: 0.5rem; /* 與標題之間留距 */
+      font-size: 0.95rem; /* 描述字體稍微縮小 */
+      color: #555; /* 描述文字淺色處理 */
+    }
+
+    
+    .project {
+      margin-bottom: 30px; /* 每個專案之間的距離 */
+    }
+
+    .project h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .project ul {
+      margin: 0;
+      padding-left: 20px; /* 列表縮進 */
+    }
+
+    .project ul li {
+      margin-bottom: 5px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
 
   </style>
 </head>
@@ -132,7 +214,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link active" href="#Research interest">Research Interests</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Research_interest">Research Interests</a></li>
               <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
               <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
               <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
@@ -164,7 +246,7 @@
   </section>
 
   <!-- Content Sections -->
-  <section id="research interest" class="container my-5">
+  <section id="Research_interest" class="container my-5">
     <h2>Research interests</h2>
     <p>Currently research interest is in AI(Gen. AI, AI acceleration & compression), Robotics, Healthcare</p>
   </section>
@@ -178,11 +260,40 @@
 
   <section id="projects" class="container my-5">
     <h2>Projects</h2>
-    <p>Showcase your recent projects, research work, or personal creations.</p>
-  </section>
+    <div class="project">
+        <h3>Research and Systematic Realization of Imaging-Based Detection of Atrial Fibrillation and Arrhythmia</h3>
+        <p>
+            <strong>Location:</strong> Hsinchu, Taiwan<br>
+            <strong>Advisor:</strong> Chair Professor Bing-Fei Wu<br>
+            <strong>Sponsor:</strong> National Science and Technology Council<br>
+            <strong>Duration:</strong> Jul. 2022 – Jul. 2025
+        </p>
+        <ul>
+            <li>Developed a remote atrial fibrillation (AF) detection system optimized for mobile devices.</li>
+            <li>Achieved a 99% reduction in model size, parameters, and FLOPs, and a 50% reduction in latency compared to previous studies.</li>
+            <li>Delivered a detection accuracy of 90% or higher across all scenarios, including motion disturbances and variable light conditions.</li>
+        </ul>
+    </div>
+    <div class="project">
+        <h3>Poker Playing System Utilizing Deep Learning and Robotic Arm</h3>
+        <p>
+            <strong>Location:</strong> New Taipei City, Taiwan<br>
+            <strong>Advisor:</strong> Prof. Ching-Chang Wong<br>
+            <strong>Sponsor:</strong> National Science and Technology Council<br>
+            <strong>Duration:</strong> Jul. 2021 – Feb. 2022
+        </p>
+        <ul>
+            <li>Designed an image classification system for poker playing using YOLO-v4, achieving 98% accuracy.</li>
+            <li>Built a platform and user interface to demonstrate the training process of multiple reinforcement learning (RL) agents executing independent card strategies, achieving a 70% winning rate.</li>
+            <li>Integrated a robotic arm system for card playing, leveraging pose detection to enable automated interaction with users’ arm movements.</li>
+        </ul>
+    </div>
+</section>
+
 
   <section id="publications" class="container my-5">
     <h2>Selected Publications</h2>
+    <h3> </h3>
     <p>
       First Author:
     </p>
@@ -192,14 +303,36 @@
   </section>
 
   <section id="honour" class="container my-5">
-    <h2>Honours</h2>
-    <p>
-      The 17th TSC Thesis Award - Distinction Award
-    </p>
-    <p>
-      Top 11 of 1,023 graduate students’ thesis.
-    </p>
-  </section>
+    <h2>Honours & Awards</h2>
+    <ul class="award-list">
+        <li>
+            <strong>The 17<sup>th</sup> TSC Thesis Award – Distinction</strong><br>
+            Taipei City, Taiwan | Nov. 2024<br>
+            <span class="description">Ranked Top 11 out of 1,023 graduate students for exceptional thesis quality.</span>
+        </li>
+        <li>
+            <strong>Graduate Student Presidential Award</strong><br>
+            Hsinchu, Taiwan | Feb. 2023<br>
+            <span class="description">Recognized for outstanding research achievements; ranked in the top 10% of graduate students and nominated by the department director.</span>
+        </li>
+        <li>
+            <strong>Presidential Award (5 Times)</strong><br>
+            New Taipei City, Taiwan | Sep. 2018 – Jan. 2022<br>
+            <span class="description">Ranked in the top 1% of students in the department for five consecutive semesters.</span>
+        </li>
+        <li>
+            <strong>National Science and Technology Council Undergraduate Fellowship</strong><br>
+            Taipei City, Taiwan | Jul. 2021 – Jan. 2022<br>
+            <span class="description">Awarded to exceptional undergraduate proposals with a highly competitive acceptance rate of less than 30%.</span>
+        </li>
+        <li>
+            <strong>Undergraduate Thesis Innovation Award – 3rd Place</strong><br>
+            New Taipei City, Taiwan | Dec. 2021<br>
+            <span class="description">Received the department’s highest recognition for undergraduate thesis innovation.</span>
+        </li>
+    </ul>
+</section>
+
   
 
   
