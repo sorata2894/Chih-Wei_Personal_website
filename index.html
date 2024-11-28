@@ -19,23 +19,51 @@
       margin-bottom: 40px;
     }
 
+    /* 文本部分的行距與間距 */
+    .profile-section p {
+      font-size: 16px;
+      line-height: 1.8; /* 增加行距提升可讀性 */
+      color: #555;
+    }
+
+    /* 超連結樣式 */
+    .profile-section a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    .profile-section a:hover {
+      text-decoration: underline;
+    }
+
+    /* 確保圖片響應式適應不同屏幕 */
     .profile-photo {
-      width: 200px;
-      height: auto;
+      max-width: 100%; /* 圖片寬度自適應容器 */
+      height: auto; /* 高度根據寬度等比例縮放 */
       object-fit: cover;
       border-radius: 10px;
       border: 3px solid #ddd;
-      margin-right: 30px;
+      margin-bottom: 20px; /* 在小屏幕上與文本部分分隔 */
+    }
+
+    /* 修正列表縮排 */
+    .indented-list {
+      margin: 0; /* 移除默認外邊距 */
+      padding: 0; /* 移除默認內邊距 */
+      list-style-type: disc; /* 確保符號為圓點 */
+      list-style-position: inside; /* 符號包含在縮排內 */
     }
 
     .profile-info {
       max-width: 600px;
     }
 
+    /* 子標題樣式 */
     .header-subtitle {
-      text-align: center;
-      font-size: 16px; /* 副標題字體大小 */
+      font-size: 16px;
       color: #666;
+      margin-bottom: 15px;
+      text-align: center; /* 在小屏幕上置中對齊 */
     }
 
     .header-subtitle a {
@@ -187,6 +215,21 @@
       color: #333;
     }
 
+    .hanging-indent {
+      margin: 0; /* 移除默認外邊距 */
+      padding: 0; /* 移除默認內邊距 */
+      text-indent: -2em; /* 首行負縮排 */
+      padding-left: 2em; /* 後續行縮排距離 */
+      line-height: 1.8; /* 提升行距以增加可讀性 */
+      margin-bottom: 1.5rem; /* 增加段落間距 */
+    }
+
+    .indented-list li {
+      padding-left: 1em; /* 整個項目包含符號縮排 */
+      margin-bottom: 0.8rem; /* 項目間距 */
+      line-height: 1.6; /* 提升行距 */
+    }
+
 
   </style>
 </head>
@@ -227,24 +270,31 @@
 
    <!-- Profile Section -->
    <section class="profile-section container">
-    <img src="assets/Personal_image.jpg" alt="Your Photo" class="profile-photo">
-    <div class="profile-info">
-      <h1>Chih-Wei Tseng</h1>
-      <!-- <p>Current Title: Research Assistant, Institution of Electrical and Control Engineering, National Yang Ming Chiao Tung University University</p> -->
-      <p class="header-subtitle">
-        Research Assistant • <a href="https://cn.nycu.edu.tw/index.php?locale=tw" target="_blank">Institution of Electrical and Control Engineering</a> • <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank">@NYCU</a>
-      </p>
-      <p>
-        Currently, I am a research assistant at National Yang Ming Chiao Tung University, advised by Chair Professor Bing-Fei Wu. My work includes developing generative models and classifiers for ECG reconstruction from PPG data for multi-class arrhythmia detection (manuscript in preparation), leading a team on generative AI and LLM projects, and building a data augmentation system for trajectory prediction, focusing on rare events like accidents and extreme weather.
-
-        Previously, I completed my master’s degree at National Yang Ming Chiao Tung University, advised by Chair Professor Bing-Fei Wu, and my undergraduate studies at Tamkang University, advised by Distinguished Professor Ching-Chang Wong. My academic journey reflects a strong focus on advancing AI, robotics, and healthcare technologies to address real-world challenges.
-      </p>
-      <p>
-        <a href="assets/My_CV.pdf" target="_blank">View my CV</a> · <a href="#publications">View Publications</a>
-      </p>
+    <div class="row align-items-center">
+      <!-- 圖片部分 -->
+      <div class="col-12 col-md-4 text-center">
+        <img src="assets/Personal_image.jpg" alt="Your Photo" class="profile-photo img-fluid">
+      </div>
+  
+      <!-- 文本部分 -->
+      <div class="col-12 col-md-8">
+        <h1>Chih-Wei Tseng</h1>
+        <p class="header-subtitle text-start">
+          Research Assistant • <a href="https://cn.nycu.edu.tw/index.php?locale=tw" target="_blank">Institution of Electrical and Control Engineering</a> • <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank">@NYCU</a>
+        </p>
+        <p>
+          Currently, I am a research assistant at National Yang Ming Chiao Tung University, advised by Chair Professor Bing-Fei Wu. My work includes developing generative models and classifiers for ECG reconstruction from PPG data for multi-class arrhythmia detection (manuscript in preparation), leading a team on generative AI and LLM projects, and building a data augmentation system for trajectory prediction, focusing on rare events like accidents and extreme weather.
+        </p>
+        <p>
+          Previously, I completed my master’s degree at National Yang Ming Chiao Tung University, advised by Chair Professor Bing-Fei Wu, and my undergraduate studies at Tamkang University, advised by Distinguished Professor Ching-Chang Wong. My academic journey reflects a strong focus on advancing AI, robotics, and healthcare technologies to address real-world challenges.
+        </p>
+        <p>
+          <a href="assets/My_CV.pdf" target="_blank">View my CV</a> · <a href="#publications">View Publications</a>
+        </p>
+      </div>
     </div>
   </section>
-
+  
   <!-- Content Sections -->
   <section id="Research_interest" class="container my-5">
     <h2>Research interests</h2>
@@ -268,7 +318,7 @@
             <strong>Sponsor:</strong> National Science and Technology Council<br>
             <strong>Duration:</strong> Jul. 2022 – Jul. 2025
         </p>
-        <ul>
+        <ul class="indented-list">
             <li>Developed a remote atrial fibrillation (AF) detection system optimized for mobile devices.</li>
             <li>Achieved a 99% reduction in model size, parameters, and FLOPs, and a 50% reduction in latency compared to previous studies.</li>
             <li>Delivered a detection accuracy of 90% or higher across all scenarios, including motion disturbances and variable light conditions.</li>
@@ -276,13 +326,14 @@
     </div>
     <div class="project">
         <h3>Poker Playing System Utilizing Deep Learning and Robotic Arm</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8X3cQt0tPHo?si=C9uMD3yEyLaT1PmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>
             <strong>Location:</strong> New Taipei City, Taiwan<br>
             <strong>Advisor:</strong> Prof. Ching-Chang Wong<br>
             <strong>Sponsor:</strong> National Science and Technology Council<br>
             <strong>Duration:</strong> Jul. 2021 – Feb. 2022
         </p>
-        <ul>
+        <ul class="indented-list">
             <li>Designed an image classification system for poker playing using YOLO-v4, achieving 98% accuracy.</li>
             <li>Built a platform and user interface to demonstrate the training process of multiple reinforcement learning (RL) agents executing independent card strategies, achieving a 70% winning rate.</li>
             <li>Integrated a robotic arm system for card playing, leveraging pose detection to enable automated interaction with users’ arm movements.</li>
