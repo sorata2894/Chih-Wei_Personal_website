@@ -86,6 +86,12 @@
       margin-bottom: 20px;
     }
 
+    #Education h2 {
+      font-weight: 500;
+      border-bottom: 2px solid #b9b9b9;
+      margin-bottom: 20px;
+    }
+
     #projects h2 {
       font-weight: 500;
       border-bottom: 2px solid #b9b9b9;
@@ -230,6 +236,57 @@
       line-height: 1.6; /* 提升行距 */
     }
 
+    /* 教育條目樣式 */
+    .education-item {
+        display: flex;
+        align-items: start;
+    }
+
+    .education-logo {
+      width: 150px; /* 固定容器寬度 */
+      height: 150px; /* 固定容器高度 */
+      display: flex;
+      align-items: center;
+      justify-content: center; /* 圖片置中 */
+    }
+
+    .education-logo img {
+      width: 150px; /* 調整寬度 */
+      height: 150px; /* 確保等比例縮放 */
+      border-radius: 8px; /* 圓角設計 */
+      object-fit: contain; /* 避免圖片變形 */
+    }
+
+    /* 學校名稱樣式 */
+    .school-name {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    /* 學位和細節樣式 */
+    .degree {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #000000;
+    }
+
+    .details, .affiliations {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #000000;
+    }
+
+    /* 超連結樣式 */
+    .education-details a {
+        color: #5bc0de; /* 鮮明的藍色 */
+        text-decoration: none;
+    }
+
+    .education-details a:hover {
+        text-decoration: underline;
+    }
+
 
     /* 論文項目樣式 */
     .publication-item {
@@ -299,6 +356,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="#Research_interest">Research Interests</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Education">Education</a></li>
               <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
               <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
               <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
@@ -340,6 +398,48 @@
   <section id="Research_interest" class="container my-5">
     <h2>Research interests</h2>
     <p>Currently research interest is in AI(Gen. AI, AI acceleration & compression), Robotics, Healthcare</p>
+  </section>
+
+  <section id="Education" class="container my-5">
+    <h2 class="mb-4">Education</h2>
+
+    <!-- 第一個教育經歷 -->
+    <div class="education-item d-flex align-items-start mb-4">
+        <div class="education-logo me-3">
+          <div class="logo-container">
+              <img src="assets/NYCU_logo.svg.png" alt="NYCU Logo">
+          </div>
+        </div>
+        <div class="education-details">
+            <h4 class="school-name">National Yang Ming Chiao Tung University</h4>
+            <p class="degree mb-1">M.S. in Electrical and Control Engineering | Feb. 2022 - Mar. 2024</p>
+            <p class="details">
+              GPA: 4.14/4.30
+            </p>
+            <p class="details">
+              Thesis: Remote Photoplethysmography Atrial Fibrillation Detection System Based on Edge Computing Devices
+            </p>
+        </div>
+    </div>
+
+    <!-- 第二個教育經歷 -->
+    <div class="education-item d-flex align-items-start mb-4">
+        <div class="education-logo me-3">
+          <div class="logo-container">
+              <img src="assets/Tamkang_University_logo.svg.png" alt="Tamkang University Logo">
+          </div>
+        </div>
+        <div class="education-details">
+            <h4 class="school-name">Tankang University</h4>
+            <p class="degree mb-1">B.E. in Electrical and Computer Engineering | SEP. 2018 - Jan. 2022</p>
+            <p class="details">
+              Rank: 1/81 | GPA: 3.969/4.00
+            </p>
+            <p class="details">
+              Thesis: Poker Playing System Based on Deep Learning and Robotic Arm
+            </p>
+        </div>
+    </div>
   </section>
 
   <section id="bio" class="container my-5">
@@ -448,7 +548,9 @@
             <span class="description">Received the department’s highest recognition for undergraduate thesis innovation.</span>
         </li>
     </ul>
-</section>
+  </section>
+
+  
 
   
 
