@@ -1,616 +1,349 @@
+<!-- =============================
+  index.html (cleaned) — with dark mode toggle
+  How to use:
+  1) Save this file as index.html
+  2) Save the CSS below as style.css in the same folder (or update the href if you prefer a different name)
+  3) Replace asset paths with your actual files under /assets
+============================= -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Website</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <style>
-    /* 個人資訊區域樣式 */
-    .profile-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
-    }
+<html lang="en" data-bs-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    /* 文本部分的行距與間距 */
-    .profile-section p {
-      font-size: 16px;
-      line-height: 1.8; /* 增加行距提升可讀性 */
-      color: #555;
-    }
+    <title>Chih‑Wei Tseng — Personal Website</title>
 
-    /* 超連結樣式 */
-    .profile-section a {
-      color: #006cdf;
-      text-decoration: none;
-    }
+    <!-- Bootstrap 5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
 
-    .profile-section a:hover {
-      text-decoration: underline;
-    }
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-    /* 確保圖片響應式適應不同屏幕 */
-    .profile-photo {
-      max-width: 100%; /* 圖片寬度自適應容器 */
-      height: auto; /* 高度根據寬度等比例縮放 */
-      object-fit: cover;
-      border-radius: 10px;
-      border: 3px solid #ddd;
-      margin-bottom: 20px; /* 在小屏幕上與文本部分分隔 */
-    }
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css#Education{
+  --edu-logo-min: 32px;
+  --edu-logo-vw: 6vw;
+  --edu-logo-max: 44px;    /* 覺得還大就改成 40 或 36 */
+  --edu-gap: 12px;
+}
 
-    /* 修正列表縮排 */
-    .indented-list {
-      margin: 0; /* 移除默認外邊距 */
-      padding: 0; /* 移除默認內邊距 */
-      list-style-type: disc; /* 確保符號為圓點 */
-      list-style-position: inside; /* 符號包含在縮排內 */
-    }
+/* 覆蓋原本 d-flex：改用 grid 讓左圖右文齊線 */
+#Education .education-item.d-flex{
+  display: grid !important;
+  grid-template-columns: clamp(var(--edu-logo-min), var(--edu-logo-vw), var(--edu-logo-max)) 1fr;
+  column-gap: var(--edu-gap);
+  align-items: start;
+}
 
-    .profile-info {
-      max-width: 600px;
-    }
+/* 左欄：logo 容器與尺寸 */
+#Education .education-logo{
+  width: clamp(var(--edu-logo-min), var(--edu-logo-vw), var(--edu-logo-max));
+}
+#Education .logo-container{
+  inline-size: clamp(var(--edu-logo-min), var(--edu-logo-vw), var(--edu-logo-max));
+  block-size:  clamp(var(--edu-logo-min), var(--edu-logo-vw), var(--edu-logo-max));
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--cw-card, #fff);
+  border: 1px solid var(--cw-border, #dee2e6);
+  overflow: hidden;
+}
+#Education .logo-container img{
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;   /* 不裁切不變形 */
+  display: block;
+}
 
-    /* 子標題樣式 */
-    .header-subtitle {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 15px;
-      text-align: center; /* 在小屏幕上置中對齊 */
-    }
+/* 右欄：文字行為，避免長標題撐破 */
+#Education .education-details{ min-width: 0; word-break: break-word; }
+#Education .education-details .school-name{ margin: 0 0 .25rem; line-height: 1.25; }
+#Education .education-details .degree,
+#Education .education-details .details{ margin: 0 0 .25rem; }
 
-    .header-subtitle a {
-      color: #006cdf; /* 超連結顏色 */
-      text-decoration: none; /* 移除底線 */
-    }
+/* 同區塊項目間距（可保留你原本 mb-4） */
+#Education .education-item + .education-item{ margin-top: 1.25rem; }
+" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg border-bottom sticky-top bg-body">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="#">Chih‑Wei Tseng</a>
 
-    .header-subtitle a:hover {
-      text-decoration: underline; /* 懸停時顯示底線 */
-    }
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    .profile-info h1 {
-      font-size: 32px;
-      font-weight: 700;
-    }
-    /* 專案區塊樣式 */
-    #bio h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #Education h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #projects h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #honour h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #others h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #publications h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    #Research_interest h2 {
-      font-weight: 500;
-      border-bottom: 2px solid #b9b9b9;
-      margin-bottom: 20px;
-    }
-
-    .profile-info p {
-      font-size: 16px;
-      color: #555;
-    }
-
-    .profile-info a {
-      color: #006cdf;
-      text-decoration: none;
-    }
-
-    .profile-info a:hover {
-      text-decoration: underline;
-    }
-    .social-icons {
-        display: flex;
-        gap: 15px; /* 圖標之間的間距 */
-    }
-    
-    .icon-link {
-        color: #ccc; /* 預設圖標顏色 */
-        font-size: 20px; /* 圖標大小 */
-        transition: color 0.3s ease;
-    }
-    
-    .icon-link:hover {
-        color: #006cdf; /* 懸停顏色變化 */
-    }
-    
-    .text-justify {
-      text-align: left; /* 文字兩端對齊 */
-      /* text-align: justify;*/ /* 文字兩端對齊 */
-      line-height: 1.8; /* 增加行距，提升可讀性 */
-      font-size: 1rem; /* 調整文字大小，根據需求修改 */
-      color: #333; /* 字體顏色，根據設計風格選擇 */
-      margin-bottom: 1.2rem; /* 增加段落間距 */
-      /* text-indent: 2em; 段首縮排 */
-    }
-
-    .citations_form{
-      text-align: justify; /* 文字兩端對齊 */
-      text-align: justify; /* 文字兩端對齊 */
-      line-height: 1.8; /* 增加行距，提升可讀性 */
-      font-size: 1rem; /* 調整文字大小，根據需求修改 */
-      color: #333; /* 字體顏色，根據設計風格選擇 */
-      margin-bottom: 1.2rem; /* 增加段落間距 */
-      text-indent: -2em; /* 首行負縮排 */
-      padding-left: 2em; /* 整體縮進補償負縮排 */
-    }
-    .citations_form i {
-      font-style: italic; /* 斜體 */
-    }
-
-    .citations_form u {
-      text-decoration: underline; /* 底線 */
-    }
-    .award-list {
-      list-style-type: none; /* 移除項目符號 */
-      padding: 0;
-    }
-
-    .award-list li {
-      margin-bottom: 1.5rem; /* 每個獎項之間的間距 */
-    }
-
-    .award-list strong {
-      font-size: 1.1rem; /* 獎項名稱加粗並稍大 */
-      color: #333; /* 文字顏色 */
-    }
-
-    .award-list .description {
-      display: block; /* 描述換行 */
-      margin-top: 0.5rem; /* 與標題之間留距 */
-      font-size: 0.95rem; /* 描述字體稍微縮小 */
-      color: #555; /* 描述文字淺色處理 */
-    }
-
-    
-    .project {
-      margin-bottom: 30px; /* 每個專案之間的距離 */
-    }
-
-    .project h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .project p {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    .project ul {
-      margin: 0;
-      padding-left: 20px; /* 列表縮進 */
-    }
-
-    .project ul li {
-      margin-bottom: 5px;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .hanging-indent {
-      margin: 0; /* 移除默認外邊距 */
-      padding: 0; /* 移除默認內邊距 */
-      text-indent: -2em; /* 首行負縮排 */
-      padding-left: 2em; /* 後續行縮排距離 */
-      line-height: 1.8; /* 提升行距以增加可讀性 */
-      margin-bottom: 1.5rem; /* 增加段落間距 */
-    }
-
-    .indented-list li {
-      padding-left: 1em; /* 整個項目包含符號縮排 */
-      margin-bottom: 0.8rem; /* 項目間距 */
-      line-height: 1.6; /* 提升行距 */
-    }
-
-    /* 教育條目樣式 */
-    .education-item {
-        display: flex;
-        align-items: start;
-    }
-
-    .education-logo {
-      width: 150px; /* 固定容器寬度 */
-      height: 150px; /* 固定容器高度 */
-      display: flex;
-      align-items: center;
-      justify-content: center; /* 圖片置中 */
-    }
-
-    .education-logo img {
-      width: 150px; /* 調整寬度 */
-      height: 150px; /* 確保等比例縮放 */
-      border-radius: 8px; /* 圓角設計 */
-      object-fit: contain; /* 避免圖片變形 */
-    }
-
-    /* 學校名稱樣式 */
-    .school-name {
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: #000000;
-    }
-
-    /* 學位和細節樣式 */
-    .degree {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #000000;
-    }
-
-    .details, .affiliations {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: #000000;
-    }
-
-    /* 超連結樣式 */
-    .education-details a {
-        color: #5bc0de; /* 鮮明的藍色 */
-        text-decoration: none;
-    }
-
-    .education-details a:hover {
-        text-decoration: underline;
-    }
-
-
-    /* 論文項目樣式 */
-    .publication-item {
-      margin-bottom: 20px; /* 每個論文項目的間距 */
-    }
-
-    
-    /* 左側圖片樣式 */
-    .publication-item img {
-      border-radius: 8px; /* 圓角圖片 */
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*添加陰影*/
-      max-width: 100%; /* 圖片寬度適應父容器 */
-      height: auto; /* 高度保持比例 */
-      object-fit: contain; /* 確保圖片內容完整顯示 */
-      margin-bottom: 15px; /* 增加圖片和文字之間的距離 */
-    }
-
-    /* 右側文字內容樣式 */
-    .publication-item h4 {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .publication-item p {
-      margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .publication-item a {
-      color: #006cdf; /* 超連結藍色 */
-      text-decoration: none;
-    }
-
-    .publication-item a:hover {
-      text-decoration: underline; /* 懸停時下劃線 */
-    }
-
-    .btn {
-      font-size: 0.85rem;
-      padding: 0.4rem 0.8rem;
-    }
-
-
-  </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-          <!-- 左側標題 -->
-          <a class="navbar-brand d-flex align-items-center" href="#">
-            <span>Chih-Wei Tseng Personal Website</span>
-          </a>
-      
-          <!-- 右側社交圖標 -->
-          <div class="social-icons d-none d-lg-flex">
-            <a href="https://www.linkedin.com/in/chih-wei-tseng-73b5732a5/" target="_blank" class="icon-link" title="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-TW&user=ybjfgNEAAAAJ" target="_blank" class="icon-link" title="Google Scholar">
-              <i class="fas fa-graduation-cap"></i>
-            </a>
-          </div>
-      
-          <!-- 移動端摺疊導航 -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="#Research_interest">Research Interests</a></li>
-              <li class="nav-item"><a class="nav-link" href="#Education">Education</a></li>
-              <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-              <li class="nav-item"><a class="nav-link" href="#honour">Honours</a></li>
-              <li class="nav-item"><a class="nav-link" href="#others">Other Experiences</a></li>
-              <li class="nav-item"><a class="nav-link" href="assets/My_CV.pdf" target="_blank">CV</a></li>
-            </ul>
-          </div>
-        </div>
-    </nav>
-
-   <!-- Profile Section -->
-   <section class="profile-section container">
-    <div class="row align-items-center">
-      <!-- 圖片部分 -->
-      <div class="col-12 col-md-4 text-center">
-        <img src="assets/Personal_image.jpg" alt="Your Photo" class="profile-photo img-fluid">
-      </div>
-  
-      <!-- 文本部分 -->
-      <div class="col-12 col-md-8">
-        <h1>Chih-Wei Tseng</h1>
-        <p class="header-subtitle text-start">
-          Research Assistant • <a href="https://cn.nycu.edu.tw/index.php?locale=tw" target="_blank">Institution of Electrical and Control Engineering</a> • <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank">@NYCU</a>
-        </p>
-        <p>
-          Currently, I am a research assistant at National Yang Ming Chiao Tung University, advised by Chair Professor <a href="https://ieeexplore.ieee.org/author/37275267600">Bing-Fei Wu</a>. My work includes developing generative models and classifiers for ECG reconstruction from PPG data for multi-class arrhythmia detection (manuscript in preparation), leading a team on generative AI and LLM projects, and building a data augmentation system for trajectory prediction, focusing on rare events like accidents and extreme weather.
-        </p>
-        <p>
-          Previously, I completed my master’s degree at National Yang Ming Chiao Tung University, advised by Chair Professor <a href="https://ieeexplore.ieee.org/author/37275267600">Bing-Fei Wu</a>, and my undergraduate studies at Tamkang University, advised by Distinguished Professor <a href="https://ieeexplore.ieee.org/author/37336874700">Ching-Chang Wong</a>. My academic journey mainly focus on advancing AI, robotics, and healthcare technologies to address real-world challenges.
-        </p>
-        <p>
-          <a href="assets/My_CV.pdf" target="_blank">View my CV</a> · <a href="#publications">View Publications</a>
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Content Sections -->
-  <section id="Research_interest" class="container my-5">
-    <h2>Research interests</h2>
-    <p>Currently research interest is in AI(Gen. AI, AI acceleration & compression), Robotics, Healthcare</p>
-  </section>
-
-  <section id="Education" class="container my-5">
-    <h2 class="mb-4">Education</h2>
-
-    <!-- 第一個教育經歷 -->
-    <div class="education-item d-flex align-items-start mb-4">
-        <div class="education-logo me-3">
-          <div class="logo-container">
-              <a href="https://www.nycu.edu.tw/nycu/en/index"><img src="assets/NYCU_logo.svg.png" alt="NYCU Logo"></a>
-          </div>
-        </div>
-        <div class="education-details">
-            <h4 class="school-name">National Yang Ming Chiao Tung University</h4>
-            <p class="degree mb-1">M.S. in Electrical and Control Engineering | Feb. 2022 - Mar. 2024</p>
-            <p class="details">
-              GPA: 4.14/4.30
-            </p>
-            <p class="details">
-              Thesis: Remote Photoplethysmography Atrial Fibrillation Detection System Based on Edge Computing Devices
-            </p>
-        </div>
-    </div>
-
-    <!-- 第二個教育經歷 -->
-    <div class="education-item d-flex align-items-start mb-4">
-        <div class="education-logo me-3">
-          <div class="logo-container">
-            <a href="https://english.tku.edu.tw/"><img src="assets/Tamkang_University_logo.svg.png" alt="Tamkang University Logo"></a>
-          </div>
-        </div>
-        <div class="education-details">
-            <h4 class="school-name">Tankang University</h4>
-            <p class="degree mb-1">B.E. in Electrical and Computer Engineering | SEP. 2018 - Jan. 2022</p>
-            <p class="details">
-              Rank: 1/81 | GPA: 3.969/4.00
-            </p>
-            <p class="details">
-              Thesis: Poker Playing System Based on Deep Learning and Robotic Arm
-            </p>
-        </div>
-    </div>
-  </section>
-
-  <section id="bio" class="container my-5">
-    <h2>Bio</h2>
-    <p class="text-justify">
-      Chih-Wei Tseng is a Research Assistant at National Yang Ming Chiao Tung University (NYCU), advised by Chair Professor Bing-Fei Wu. His research focuses on artificial intelligence, including generative AI, model acceleration, and healthcare applications. Currently, he is developing generative models for multi-class arrhythmia detection, leading projects on large language models, and creating data augmentation systems for trajectory prediction.
-    </p>
-    <p class="text-justify">
-      Chih-Wei earned his B.E. in Electrical and Computer Engineering from Tamkang University, where he graduated top of his class, and his M.S. in Electrical and Control Engineering from NYCU, achieving a GPA of 4.14/4.30. His thesis on edge computing-based atrial fibrillation detection was published in the IEEE Journal of Biomedical and Health Informatics.
-    </p>
-    <p class="text-justify">
-      He has received several Awards and Honours, including the 17th TSC Thesis Award - Distinction, Graduate Student Presidential Award, and the Undergraduate Thesis Innovation Award. Chih-Wei's work reflects a commitment to advancing AI for impactful real-world applications.
-    </p>
-  </section>
-
-  <section id="projects" class="container my-5">
-    <h2>Projects</h2>
-    <div class="project">
-        <h3>Research and Systematic Realization of Imaging-Based Detection of Atrial Fibrillation and Arrhythmia</h3>
-        <div class="ratio ratio-16x9">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/8SVuIYg6nUQ?si=YoBpcWZ13RXxsPch" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <p>
-            <strong>Location:</strong> Hsinchu, Taiwan<br>
-            <strong>Advisor:</strong> Chair Professor Bing-Fei Wu<br>
-            <strong>Sponsor:</strong> National Science and Technology Council<br>
-            <strong>Duration:</strong> Jul. 2022 – Jul. 2025
-        </p>
-        <ul class="indented-list">
-            <li>Developed a remote atrial fibrillation (AF) detection system optimized for mobile devices.</li>
-            <li>Achieved a 99% reduction in model size, parameters, and FLOPs, and a 50% reduction in latency compared to previous studies.</li>
-            <li>Delivered a detection accuracy of 90% or higher across all scenarios, including motion disturbances and variable light conditions.</li>
-        </ul>
-    </div>
-    <div class="project">
-        <h3>Poker Playing System Utilizing Deep Learning and Robotic Arm</h3>
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/8X3cQt0tPHo?si=C9uMD3yEyLaT1PmM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-        <p>
-            <strong>Location:</strong> New Taipei City, Taiwan<br>
-            <strong>Advisor:</strong> Distinguished Professor Ching-Chang Wong<br>
-            <strong>Sponsor:</strong> National Science and Technology Council<br>
-            <strong>Duration:</strong> Jul. 2021 – Feb. 2022
-        </p>
-        <ul class="indented-list">
-            <li>Designed an image classification system for poker playing using YOLO-v4, achieving 98% accuracy.</li>
-            <li>Built a platform and user interface to demonstrate the training process of multiple reinforcement learning (RL) agents executing independent card strategies, achieving a 70% winning rate.</li>
-            <li>Integrated a robotic arm system for card playing, leveraging pose detection to enable automated interaction with users’ arm movements.</li>
-        </ul>
-    </div>
-</section>
-
-
-  <!-- <section id="publications" class="container my-5">
-    <h2>Selected Publications</h2>
-    <h3> </h3>
-    <p>
-      First Author:
-    </p>
-    <p class="citations_form">
-      [1] <u>C. -W. Tseng</u>, B. -F. Wu and S. Yu, "A Real-Time Contact-Free Atrial Fibrillation Detection System for Mobile Devices," in <i>IEEE Journal of Biomedical and Health Informatics</i>, doi: <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" class="doi-link">10.1109/JBHI.2024.3422155</a>. (Accepted)
-    </p>
-  </section> -->
-
-  <section id="publications" class="container my-5">
-    <h2>Selected Publications</h2>
-    <!-- 第一篇論文 -->
-    <div class="row publication-item align-items-start mb-4">
-        <!-- 左側圖片 -->
-        <div class="col-12 col-md-3 text-center text-md-start">
-            <img src="assets/JBHI_BiSMEATT_Feature.png" alt="Paper Thumbnail" class="img-fluid rounded">
-        </div>
-        <!-- 右側文字內容 -->
-        <div class="col-12 col-md-9">
-            <h4 class="mb-1">
-                <strong>A Real-Time Contact-Free Atrial Fibrillation Detection System for Mobile Devices (Feature Article)</strong>
-            </h4>
-            <p class="mb-1">
-                <u>C. -W. Tseng</u>, B. -F. Wu, S. Yu
-            </p>
-            <p class="text-muted mb-2"><i>IEEE Journal of Biomedical and Health Informatics</i>, 2024</p>
-            <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" class="btn btn-outline-primary btn-sm">View Paper</a>
-        </div>
-    </div>
-  </section>
-
-
-
-  <section id="honour" class="container my-5">
-    <h2>Honours & Awards</h2>
-    <ul class="award-list">
-        <li>
-          <strong>IEEE Taipei Section Best Master Thesis Award</strong><br>
-          Hsinchu, Taiwan | Jan. 2025<br>
-        </li>
-        <li>
-            <strong>The 17<sup>th</sup> TSC Thesis Award – Distinction</strong><br>
-            Taipei City, Taiwan | Nov. 2024<br>
-            <span class="description">Ranked Top 11 out of 1,023 graduate students for exceptional thesis quality.</span>
-        </li>
-        <li>
-            <strong>Graduate Student Presidential Award</strong><br>
-            Hsinchu, Taiwan | Feb. 2023<br>
-            <span class="description">Recognized for outstanding research achievements; ranked in the top 10% of graduate students and nominated by the department director.</span>
-        </li>
-        <li>
-            <strong>Presidential Award (5 Times)</strong><br>
-            New Taipei City, Taiwan | Sep. 2018 – Jan. 2022<br>
-            <span class="description">Ranked in the top 1% of students in the department for five consecutive semesters.</span>
-        </li>
-        <li>
-            <strong>National Science and Technology Council Undergraduate Fellowship</strong><br>
-            Taipei City, Taiwan | Jul. 2021 – Jan. 2022<br>
-            <span class="description">Awarded to exceptional undergraduate proposals with a highly competitive acceptance rate of less than 30%.</span>
-        </li>
-        <li>
-            <strong>Undergraduate Thesis Innovation Award – 3rd Place</strong><br>
-            New Taipei City, Taiwan | Dec. 2021<br>
-            <span class="description">Received the department’s highest recognition for undergraduate thesis innovation.</span>
-        </li>
-    </ul>
-  </section>
-  <section id="others" class="container my-5">
-    <h2>Other Experiences</h2>
-    <div class="project mb-5">
-      
-      <!-- 图片和内容分列布局 -->
-      <div class="row align-items-start">
-        <!-- 左侧图片部分 -->
-        <div class="col-12 col-md-3 text-center">
-          <img src="assets/Lukong_photo1.png" alt="Robotics Workshop 1" class="img-fluid rounded mb-3">
-          <img src="assets/Lukong_photo2.png" alt="Robotics Workshop 2" class="img-fluid rounded">
-        </div>
-        <!-- 右侧文本部分 -->
-        <div class="col-12 col-md-8">
-          <h3>Teaching Robotics in Rural Areas</h3>
-          <p>
-            <strong>Location:</strong> Lukang Township, Changhua County, Taiwan <br>
-            <strong>Advisor:</strong> Prof. Chun-Fei Hsu, Tamkang University<br>
-            <strong>Sponsor:</strong> Tamkang University<br>
-            <strong>Duration:</strong> Jul. 2019
-          </p>
-          <ul class="indented-list">
-            <li>Helped organize robotics workshops for underprivileged students in rural Taiwan, introducing foundational robotics concepts and sparking interest in STEM education.</li>
-            <li>Promoted equal access to technology education by bridging the gap between urban and rural educational resources.</li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="#Research_interest">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Education">Education</a></li>
+            <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+            <li class="nav-item"><a class="nav-link" href="#honour">Honours</a></li>
+            <li class="nav-item"><a class="nav-link" href="#others">Other</a></li>
+            <li class="nav-item"><a class="nav-link" href="assets/My_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+            <li class="nav-item ms-lg-2 d-flex">
+              <!-- Social icons (desktop & mobile) -->
+              <div class="d-flex gap-3 align-items-center social-icons">
+                <a class="icon-link" href="https://www.linkedin.com/in/chih-wei-tseng-73b5732a5/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a class="icon-link" href="https://scholar.google.com/citations?view_op=list_works&hl=zh-TW&user=ybjfgNEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <!-- Theme toggle -->
+                <button id="theme-toggle" class="btn btn-outline-secondary btn-sm ms-2" type="button" aria-label="Toggle dark mode">
+                  <i class="fa-solid fa-moon"></i>
+                </button>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
-  
+    </nav>
 
-  
+    <!-- HERO / PROFILE -->
+    <section class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-md-4 text-center">
+          <img src="assets/Personal_image.jpg" class="profile-photo img-fluid" alt="Portrait of Chih‑Wei Tseng" />
+        </div>
+        <div class="col-12 col-md-8">
+          <h1 class="mb-2">Chih‑Wei Tseng</h1>
+          <p class="header-subtitle mb-3">
+            Research Assistant •
+            <a href="https://cn.nycu.edu.tw/index.php?locale=tw" target="_blank" rel="noopener">Institute of Electrical and Control Engineering</a>
+            • <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank" rel="noopener">@NYCU</a>
+          </p>
+          <p class="text-justify">
+            I am a Research Assistant at National Yang Ming Chiao Tung University (NYCU), supervised by Chair Professor
+            <a href="https://ieeexplore.ieee.org/author/37275267600" target="_blank" rel="noopener">Bing-Fei Wu</a>.
+            My research focuses on generative, efficient, and explainable AI for remote physiological sensing and intelligent robotic systems (including autonomous driving).
+          </p>
+          <p class="text-justify">
+            Recent work includes generative ECG-from-PPG modeling for multi-class arrhythmia detection; interpretable, memory-augmented trajectory prediction; and an industry collaboration on interpretability for imaging-to-rPPG. I also lead several master’s students on generative AI for autonomous-driving scenarios and rare-event data. During my M.S., I developed a contact-free rPPG atrial-fibrillation detection system that runs in real time on mobile devices and achieves &gt;90% accuracy under motion and lighting variations; this work was featured as a <i>Feature Article</i> in <i>IEEE JBHI</i>.
+          </p>
+          <p class="mb-0">
+            <a href="assets/My_CV.pdf" target="_blank" rel="noopener">View my CV</a> · <a href="#publications">View Publications</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
-  
+    <!-- RESEARCH INTERESTS -->
+    <section id="Research_interest" class="container section-gap">
+      <h2 class="section-title">Research Interests</h2>
+      <p>Generative AI, AI acceleration & compression, Robotics, Healthcare.</p>
+    </section>
 
-  
+    <!-- EDUCATION -->
+    <section id="Education" class="container section-gap">
+      <h2 class="section-title mb-4">Education</h2>
 
-  <footer class="text-center py-3 mt-5 bg-light border-top">
-    Copyright &copy; 2024 Chih-Wei Tseng | Last Updated: Dec. 1, 2024
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+      <div class="education-item d-flex align-items-start mb-4">
+        <div class="education-logo me-3">
+          <div class="logo-container">
+            <a href="https://www.nycu.edu.tw/nycu/en/index" target="_blank" rel="noopener">
+              <img src="assets/NYCU_logo.svg.png" alt="NYCU logo" class="img-fluid">
+            </a>
+          </div>
+        </div>
+        <div class="education-details">
+          <h4 class="school-name">National Yang Ming Chiao Tung University</h4>
+          <p class="degree mb-1">M.S. in Electrical and Control Engineering | Feb. 2022 – Mar. 2024</p>
+          <p class="details">GPA: 4.14/4.30</p>
+          <p class="details">Thesis: Remote Photoplethysmography Atrial Fibrillation Detection System Based on Edge Computing Devices</p>
+        </div>
+      </div>
+
+      <div class="education-item d-flex align-items-start mb-4">
+        <div class="education-logo me-3">
+          <div class="logo-container">
+            <a href="https://english.tku.edu.tw/" target="_blank" rel="noopener">
+              <img src="assets/Tamkang_University_logo.svg.png" alt="Tamkang University logo" class="img-fluid">
+            </a>
+          </div>
+        </div>
+        <div class="education-details">
+          <h4 class="school-name">Tamkang University</h4>
+          <p class="degree mb-1">B.E. in Electrical and Computer Engineering | Sep. 2018 – Jan. 2022</p>
+          <p class="details">Rank: 1/81 | GPA: 3.969/4.00</p>
+          <p class="details">Thesis: Poker Playing System Based on Deep Learning and Robotic Arm</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO -->
+    <section id="bio" class="container section-gap">
+      <h2 class="section-title">Bio</h2>
+      <p class="text-justify">
+        Chih-Wei Tseng is a Research Assistant at NYCU, advised by Chair Professor
+        <a href="https://ieeexplore.ieee.org/author/37275267600" target="_blank" rel="noopener">Bing-Fei Wu</a>.
+        His work centers on generative, efficient, and explainable AI for remote physiological sensing and robotics.
+      </p>
+      <p class="text-justify">
+        During his M.S. at NYCU (advisor: Chair Professor
+        <a href="https://ieeexplore.ieee.org/author/37275267600" target="_blank" rel="noopener">Bing-Fei Wu</a>), he developed a lightweight, real-time rPPG system for atrial fibrillation detection.
+        The study used 7,216 facial-video clips from 452 subjects, achieved mobile deployment with over 90% accuracy under motion and lighting variations, and was published as a Feature Article in
+        <i>IEEE JBHI</i>, with ~99% reduction in size/parameters/FLOPs and ~50% latency reduction compared to prior work.
+      </p>
+      <p class="text-justify mb-0">
+        As an undergraduate at Tamkang University (advisor: Distinguished Professor
+        <a href="https://ieeexplore.ieee.org/author/37336874700" target="_blank" rel="noopener">Ching-Chang Wong</a>), he built a gesture-based robotic-arm poker system combining a YOLOv4 card recognizer (98% accuracy) with multi-agent reinforcement learning (~70% win rate).
+        He now leads three master’s students on LLMs and generative AI, works on memory-based trajectory prediction, and collaborates with FaceHeart Inc. on interpretability for imaging-to-rPPG.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="container section-gap">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project mb-5">
+        <h3>Research and Systematic Realization of Imaging‑Based Detection of Atrial Fibrillation and Arrhythmia</h3>
+        <div class="ratio ratio-16x9 mb-3">
+          <iframe
+            src="https://www.youtube.com/embed/8SVuIYg6nUQ?si=YoBpcWZ13RXxsPch"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="mb-2"><strong>Location:</strong> Hsinchu, Taiwan<br /><strong>Advisor:</strong> Chair Professor Bing‑Fei Wu<br /><strong>Sponsor:</strong> National Science and Technology Council<br /><strong>Duration:</strong> Jul. 2022 – Jul. 2025</p>
+        <ul class="indented-list">
+          <li>Developed a remote atrial fibrillation (AF) detection system optimized for mobile devices.</li>
+          <li>Achieved ~99% reduction in model size/params/FLOPs and ~50% latency reduction compared to previous studies.</li>
+          <li>Delivered ≥90% detection accuracy across scenarios, including motion disturbances and variable lighting.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <h3>Poker Playing System Utilizing Deep Learning and Robotic Arm</h3>
+        <p class="mb-2"><strong>Location:</strong> New Taipei City, Taiwan<br /><strong>Advisor:</strong> Distinguished Professor Ching‑Chang Wong<br /><strong>Sponsor:</strong> National Science and Technology Council<br /><strong>Duration:</strong> Jul. 2021 – Feb. 2022</p>
+        <ul class="indented-list">
+          <li>Designed an image classification system for poker playing using YOLOv4, achieving 98% accuracy.</li>
+          <li>Built a platform/UI to demonstrate training of multiple RL agents executing independent strategies (~70% win rate).</li>
+          <li>Integrated a robotic arm system using pose detection to interact with users’ arm movements.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="container section-gap">
+      <h2 class="section-title">Selected Publications</h2>
+      <div class="row publication-item align-items-start g-3">
+        <div class="col-12 col-md-3 text-center text-md-start">
+          <img src="assets/JBHI_BiSMEATT_Feature.png" alt="JBHI Feature Article thumbnail" class="img-fluid rounded" />
+        </div>
+        <div class="col-12 col-md-9">
+          <h4 class="mb-1"><strong>A Real‑Time Contact‑Free Atrial Fibrillation Detection System for Mobile Devices (Feature Article)</strong></h4>
+          <p class="mb-1"><u>C.‑W. Tseng</u>, B.‑F. Wu, S. Yu</p>
+          <p class="text-muted mb-2"><i>IEEE Journal of Biomedical and Health Informatics</i>, 2024</p>
+          <a href="https://doi.org/10.1109/JBHI.2024.3422155" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">View Paper</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONOURS -->
+    <section id="honour" class="container section-gap">
+      <h2 class="section-title">Honours & Awards</h2>
+      <ul class="award-list">
+        <li>
+          <strong>IEEE Taipei Section Best Master Thesis Award</strong><br />Hsinchu, Taiwan | Jan. 2025
+        </li>
+        <li>
+          <strong>The 17<sup>th</sup> TSC Thesis Award – Distinction</strong><br />Taipei City, Taiwan | Nov. 2024<br />
+          <span class="description">Ranked Top 11 out of 1,023 graduate students for exceptional thesis quality.</span>
+        </li>
+        <li>
+          <strong>Graduate Student Presidential Award</strong><br />Hsinchu, Taiwan | Feb. 2023<br />
+          <span class="description">Recognized for outstanding research achievements; ranked in the top 10% of graduate students and nominated by the department director.</span>
+        </li>
+        <li>
+          <strong>Presidential Award (5 Times)</strong><br />New Taipei City, Taiwan | Sep. 2018 – Jan. 2022<br />
+          <span class="description">Top 1% of students in the department for five consecutive semesters.</span>
+        </li>
+        <li>
+          <strong>National Science and Technology Council Undergraduate Fellowship</strong><br />Taipei City, Taiwan | Jul. 2021 – Jan. 2022<br />
+          <span class="description">Awarded to exceptional undergraduate proposals with an acceptance rate &lt; 30%.</span>
+        </li>
+        <li>
+          <strong>Undergraduate Thesis Innovation Award – 3rd Place</strong><br />New Taipei City, Taiwan | Dec. 2021<br />
+          <span class="description">Department’s highest recognition for undergraduate thesis innovation.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- OTHER EXPERIENCES -->
+    <section id="others" class="container section-gap">
+      <h2 class="section-title">Other Experiences</h2>
+      <div class="project mb-5">
+        <div class="row align-items-start g-4">
+          <div class="col-12 col-md-4 text-center">
+            <img src="assets/Lukong_photo1.png" alt="Robotics workshop photo 1" class="img-fluid rounded mb-3" />
+            <img src="assets/Lukong_photo2.png" alt="Robotics workshop photo 2" class="img-fluid rounded" />
+          </div>
+          <div class="col-12 col-md-8">
+            <h3>Teaching Robotics in Rural Areas</h3>
+            <p class="mb-2"><strong>Location:</strong> Lukang Township, Changhua County, Taiwan<br /><strong>Advisor:</strong> Prof. Chun‑Fei Hsu (Tamkang University)<br /><strong>Sponsor:</strong> Tamkang University<br /><strong>Duration:</strong> Jul. 2019</p>
+            <ul class="indented-list">
+              <li>Organized robotics workshops for underprivileged students, introducing foundational concepts and sparking interest in STEM.</li>
+              <li>Promoted equal access to technology education by bridging urban–rural resource gaps.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center py-4 mt-5 border-top bg-body-tertiary small">
+      <div class="container">Copyright &copy; <span id="year"></span> Chih‑Wei Tseng</div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // THEME: light/dark with persistence and system preference fallback
+      (function () {
+        const storageKey = 'theme';
+        const root = document.documentElement; // <html>
+        const btn = document.getElementById('theme-toggle');
+
+        const getPreferredTheme = () => {
+          const stored = localStorage.getItem(storageKey);
+          if (stored === 'light' || stored === 'dark') return stored;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+
+        const setTheme = (mode) => {
+          root.setAttribute('data-bs-theme', mode);
+          localStorage.setItem(storageKey, mode);
+          if (btn) btn.innerHTML = mode === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+        };
+
+        setTheme(getPreferredTheme());
+        btn && btn.addEventListener('click', () => setTheme(root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark'));
+      })();
+    </script>
+  </body>
 </html>
+
