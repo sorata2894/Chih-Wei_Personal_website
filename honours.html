@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Honours — Chih-Wei Tseng</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg border-bottom sticky-top bg-body">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" href="index.html">Chih-Wei Tseng</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="experience.html">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="honours.html">Honours</a></li>
+          <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+          <li class="nav-item ms-lg-2 d-flex">
+            <div class="d-flex gap-3 align-items-center social-icons">
+              <a class="icon-link" href="https://www.linkedin.com/in/chih-wei-tseng-73b5732a5/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a class="icon-link" href="https://scholar.google.com/citations?view_op=list_works&hl=zh-TW&user=ybjfgNEAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+              <button id="theme-toggle" class="btn btn-outline-secondary btn-sm ms-2" type="button" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <h1 class="section-title mb-4">Honours & Awards</h1>
+
+    <ul class="award-list">
+      <li>
+        <strong>IEEE Taipei Section Best Master Thesis Award</strong><br>Hsinchu, Taiwan | Jan. 2025
+        <span class="description">18 master’s theses selected from ECE master’s theses from around Taiwan each year.</span>
+      </li>
+      <li>
+        <strong>The 17<sup>th</sup> TSC Thesis Award – Distinction</strong><br>Taipei City, Taiwan | Nov. 2024<br>
+        <span class="description">Ranked Top 11 out of 1,023 graduate students for exceptional thesis quality.</span>
+      </li>
+      <li>
+        <strong>Graduate Student Presidential Award</strong><br>Hsinchu, Taiwan | Feb. 2023<br>
+        <span class="description">Recognized for outstanding research achievements; ranked in the top 10% of graduate students and nominated by the department director.</span>
+      </li>
+      <li>
+        <strong>Presidential Award (5 Times)</strong><br>New Taipei City, Taiwan | Sep. 2018 – Jan. 2022<br>
+        <span class="description">Top 1% of students in the department for five consecutive semesters.</span>
+      </li>
+      <li>
+        <strong>National Science and Technology Council Undergraduate Fellowship</strong><br>Taipei City, Taiwan | Jul. 2021 – Jan. 2022<br>
+        <span class="description">Awarded to exceptional undergraduate proposals with an acceptance rate &lt; 30%.</span>
+      </li>
+      <li>
+        <strong>Undergraduate Thesis Innovation Award – 3rd Place</strong><br>New Taipei City, Taiwan | Dec. 2021<br>
+        <span class="description">Department’s highest recognition for undergraduate thesis innovation.</span>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="text-center py-4 mt-5 border-top bg-body-tertiary small">
+    <div class="container">Copyright &copy; <span id="year"></span> Chih-Wei Tseng</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function(){const k='theme',r=document.documentElement,b=document.getElementById('theme-toggle');const g=()=>localStorage.getItem(k)??(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');const s=m=>{r.setAttribute('data-bs-theme',m);localStorage.setItem(k,m);b&&(b.innerHTML=m==='dark'?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>')};s(g());b&&b.addEventListener('click',()=>s(r.getAttribute('data-bs-theme')==='dark'?'light':'dark'));})();
+    (function(){const here=location.pathname.split('/').pop();document.querySelectorAll('.navbar .nav-link').forEach(a=>{const href=a.getAttribute('href');if(href&&href.endsWith(here))a.classList.add('active');});})();
+  </script>
+</body>
+</html>

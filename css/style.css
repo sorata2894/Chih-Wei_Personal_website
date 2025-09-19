@@ -8,6 +8,7 @@
   --cw-accent: #0d6efd; /* Bootstrap primary */
   --cw-border: #dee2e6;
   --cw-card: #ffffff;
+  --section-rule: #000;
 }
 
 html[data-bs-theme='dark'] {
@@ -16,6 +17,7 @@ html[data-bs-theme='dark'] {
   --cw-accent: #6ea8fe;
   --cw-border: #495057;
   --cw-card: #1c1f23;
+  --section-rule: #fff;
 }
 
 /* Global */
@@ -24,10 +26,14 @@ body { font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, 'Helve
 h1 { font-weight: 700; font-size: 2.25rem; }
 
 .section-title {
-  font-weight: 700;
+  /* font-weight: 700;
   display: inline-block;
   margin-bottom: 1rem;
-  border-bottom: 2px solid var(--cw-accent);
+  border-bottom: 2px solid var(--cw-accent); */
+  display: block;                 /* 覆蓋原本的 inline-block */
+  padding-bottom: .35rem;         /* 與底線拉開一點距離 */
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--section-rule);  /* 黑/白切換 */
 }
 
 p { color: var(--cw-text); }
@@ -57,6 +63,33 @@ p { color: var(--cw-text); }
   background: var(--cw-card);
   box-shadow: 0 6px 24px rgba(0,0,0,.06);
 }
+
+/* HERO figure：讓圖片寬度隨視窗平滑縮放，控制上下限 */
+.hero-figure{
+  /* 想更大/更小，改這三個值即可 */
+  --hero-img-min: 180px;   /* 最小尺寸 */
+  --hero-img-vw:  26vw;    /* 視窗相對尺寸（平滑過渡的關鍵） */
+  --hero-img-max: 350px;   /* 最大尺寸 */
+
+  inline-size: clamp(var(--hero-img-min), var(--hero-img-vw), var(--hero-img-max));
+  margin-inline: auto;     /* < lg 置中 */
+}
+
+
+/* 覆蓋原本 .profile-photo 的固定寬度，改為吃容器寬 */
+.hero-figure .profile-photo{
+  inline-size: 100%;
+  block-size: auto;
+  display: block;
+  border-radius: 12px;
+  border: 3px solid var(--cw-border);
+}
+
+/* ≥ lg 左對齊（圖片欄位本身已 text-lg-start，此處確保容器不再置中） */
+@media (min-width: 992px){
+  .hero-figure{ margin-inline: 0; }
+}
+
 
 .profile-photo{
   inline-size: 100%;
@@ -127,6 +160,59 @@ p { color: var(--cw-text); }
 
 /* Publication item */
 .publication-item img { border: 1px solid var(--cw-border); background: var(--cw-card); }
+
+/* Research Experience — Timeline Cards */
+.exp-timeline{
+  --dot: 12px;
+  --line: 2px;
+  position: relative;
+}
+
+.exp-item{
+  position: relative;
+  padding-left: 1.5rem;           /* 給時間軸留空間 */
+  margin-bottom: 1.5rem;
+}
+
+/* 直向時間軸 + 節點 */
+.exp-item::before{
+  content: "";
+  position: absolute;
+  left: 0.45rem;
+  top: 0.35rem;
+  bottom: -0.35rem;
+  width: var(--line);
+  background: linear-gradient(180deg, var(--cw-accent), transparent 80%);
+}
+.exp-item::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: var(--cw-card);
+  border: 2px solid var(--cw-accent);
+}
+
+/* 卡片外觀 */
+.exp-card{
+  background: var(--cw-card);
+  border: 1px solid var(--cw-border);
+  border-radius: 12px;
+  padding: 1rem 1rem 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.04);
+}
+
+.exp-title{ font-weight: 600; margin: 0 0 .25rem; }
+.exp-meta{ color: var(--cw-text-muted); font-size: .925rem; margin-bottom: .5rem; }
+.exp-list{ margin: 0; padding-left: 1.25rem; }
+.exp-list li{ margin-bottom: .35rem; }
+
+/* 卡片間距（保留你原本的 section-gap 節奏） */
+#research-experience .exp-item + .exp-item{ margin-top: 1rem; }
+
 
 /* Footer */
 footer { color: var(--cw-text-muted); }
