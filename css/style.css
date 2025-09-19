@@ -213,6 +213,26 @@ p { color: var(--cw-text); }
 /* 卡片間距（保留你原本的 section-gap 節奏） */
 #research-experience .exp-item + .exp-item{ margin-top: 1rem; }
 
+/* Mobile typography fix */
+@media (max-width: 768px){
+  /* 取消左右對齊，避免「空白河流」；加上自動斷字 */
+  .text-justify{
+    text-align: start !important;  /* ← 重點，加 !important 保證覆蓋 */
+    text-justify: auto;
+    hyphens: auto;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.65;            /* 比桌機 1.8 稍微緊一點 */
+  }
+  /* 英文副標與段落間距略縮，視覺更緊實 */
+  #about .header-subtitle{ margin-bottom: .5rem !important; }
+  .section-gap{ margin-top: 1.25rem; margin-bottom: 1.25rem; }
+}
+
+/* 小加分：新瀏覽器自動優化換行 */
+@supports (text-wrap: balance){ h1, h2, h3{ text-wrap: balance; } }
+@supports (text-wrap: pretty){  .text-justify{ text-wrap: pretty; } }
+
 
 /* Footer */
 footer { color: var(--cw-text-muted); }
